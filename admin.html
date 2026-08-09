@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admin Dashboard | TechPulse Nigeria</title>
+<link rel="stylesheet" href="css/style.css">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<header class="nav">
+  <a class="brand" href="index.html"><span class="logo">TP</span> TechPulse <em>Nigeria</em></a>
+  <nav>
+    <a href="idea.html">Methodology</a>
+    <a href="index.html">Assessment</a>
+    <button id="logout" class="linkbtn" hidden>Sign out</button>
+  </nav>
+</header>
+
+<main class="container page">
+<section id="login" class="card login">
+  <span class="pill">RESTRICTED AREA</span>
+  <h1>Admin Dashboard</h1>
+  <p class="muted">Sign in with your authorized TechPulse administrator account.</p>
+  <form id="loginForm">
+    <label>Email
+      <input id="email" type="email" placeholder="admin@example.com" autocomplete="email" required>
+    </label>
+    <label>Password
+      <input id="password" type="password" placeholder="Your password" autocomplete="current-password" required>
+    </label>
+    <button id="loginBtn" class="btn full" type="submit">Sign in →</button>
+    <p id="loginError" class="error"></p>
+  </form>
+</section>
+
+<section id="dashboard" hidden>
+  <div class="dash-head">
+    <div>
+      <span class="pill">RESEARCH DASHBOARD</span>
+      <h1>Digital Literacy Index</h1>
+      <p class="muted">TechPulse Nigeria research analytics.</p>
+    </div>
+    <button id="refresh" class="ghost">Refresh</button>
+  </div>
+
+  <section class="metrics">
+    <div class="metric card"><span>Total submissions</span><b id="total">0</b></div>
+    <div class="metric card"><span>Average score</span><b id="avg">0%</b></div>
+    <div class="metric card"><span>Top age group</span><b id="top">—</b></div>
+    <div class="metric card"><span>Highest domain</span><b id="best">—</b></div>
+  </section>
+
+  <section class="grid2">
+    <div class="card"><h2>Score by age group</h2><div id="ageChart" class="bars"></div></div>
+    <div class="card"><h2>Domain performance</h2><div id="domainChart" class="bars"></div></div>
+  </section>
+
+  <section class="card">
+    <div class="section-head"><h2>State distribution</h2><button id="export" class="ghost">Export CSV</button></div>
+    <div id="stateChart" class="bars"></div>
+  </section>
+
+  <section class="card" style="margin-top:18px"><h2>Device usage</h2><div id="deviceChart" class="bars"></div></section>
+  <section class="card" style="margin-top:18px"><h2>Education level</h2><div id="educationChart" class="bars"></div></section>
+  <section class="card" style="margin-top:18px"><h2>Daily submissions</h2><div id="dailyChart" class="bars"></div></section>
+</section>
+</main>
+
+<footer>TechPulse Nigeria · Restricted analytics</footer>
+<script src="js/config.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
